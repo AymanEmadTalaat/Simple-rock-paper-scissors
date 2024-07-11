@@ -1,5 +1,7 @@
-// This is a simple rock - paper - scissors game, that let you enter one of the three options and then the computer choice will be randomized, after that the winner will be logged out, in a game of five rounds //
-// For some reason on google the crash, but for example on Opera it doesn't//
+// A prompt message will appear asking the player to choose between Rock/Paper/Scissors
+// The computer choice will be randomly choosen between the three options
+// There will be five rounds, after each round the winner will be announced
+// After the game ends, the score will be announced declaring the winner
 
 let humanScore = 0;
 let computerScore = 0;
