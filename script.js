@@ -71,7 +71,7 @@ function playGame() {
       playRound(promtValue, computerChoiceArr[computerChoice]);
     }
 
-    div.textContent += `${humanScore} ${computerScore}`;
+    div.textContent = `${humanScore} ${computerScore}`;
 
     if (humanScore === 5 || computerScore === 5) {
       console.log("The game is over");
