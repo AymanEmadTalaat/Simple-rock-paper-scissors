@@ -44,6 +44,8 @@ function playRound(value1, value2) {
     humanScore += 1;
   } else if (value1 === "Scissors" && value2 === "Scissors") {
     console.log("It's a tie");
+  } else {
+    console.log("You didn't enter your weapon!!!");
   }
 }
 
