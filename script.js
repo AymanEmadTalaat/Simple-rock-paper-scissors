@@ -48,11 +48,12 @@ function playRound(value1, value2) {
 }
 
 function playGame() {
+  const div = document.createElement("div");
+  div.style.cssText = "text-align: center; font-size: 5em; margin-top: -3em;";
+  document.body.insertBefore(div, container);
+
   container.addEventListener("click", (e) => {
     let target = e.target;
-    const div = document.createElement("div");
-    div.style.cssText = "text-align: center; font-size: 5em; ";
-    document.body.insertBefore(div, container);
 
     if (target.id === "1") {
       promtValue = "Rock";
@@ -82,6 +83,9 @@ function playGame() {
       } else {
         console.log("It's a tie!, Nobody Won!!!");
       }
+      document.getElementById("1").disabled = true;
+      document.getElementById("2").disabled = true;
+      document.getElementById("3").disabled = true;
     }
   });
 }
