@@ -2,7 +2,7 @@
 // The computer choice will be randomly choosen between the three options
 // There will be five rounds, after each round the winner will be announced
 // After the game ends, the score will be announced declaring the winner
-
+const container = document.querySelector(".container");
 let humanScore = 0;
 let computerScore = 0;
 
@@ -16,7 +16,7 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-  promtValue = prompt("Enter your Weapon! Rock / Paper / Scissors");
+  alert(`You chose ${promtValue}`);
 }
 
 function playRound(value1, value2) {
@@ -44,26 +44,46 @@ function playRound(value1, value2) {
     humanScore += 1;
   } else if (value1 === "Scissors" && value2 === "Scissors") {
     console.log("It's a tie");
-  } else {
-    console.log("You didn't enter your weapon!!!");
   }
 }
 
 function playGame() {
-  getComputerChoice();
-  getHumanChoice();
-  playRound(promtValue, computerChoiceArr[computerChoice]);
+  container.addEventListener("click", (e) => {
+    let target = e.target;
+    const div = document.createElement("div");
+    div.style.cssText = "text-align: center; font-size: 5em; ";
+    document.body.insertBefore(div, container);
 
-  if (humanScore > computerScore) {
-    console.log("Player wins!");
-    console.log(humanScore, computerScore);
-  } else if (humanScore < computerScore) {
-    console.log("Player loses, Game over");
-    console.log(humanScore, computerScore);
-  } else if (humanScore === computerScore) {
-    console.log("It's a tie, Nobody won!");
-    console.log(humanScore, computerScore);
-  }
+    if (target.id === "1") {
+      promtValue = "Rock";
+      getHumanChoice();
+      getComputerChoice();
+      playRound(promtValue, computerChoiceArr[computerChoice]);
+    } else if (target.id === "2") {
+      promtValue = "Paper";
+      getHumanChoice();
+      getComputerChoice();
+      playRound(promtValue, computerChoiceArr[computerChoice]);
+    } else if (target.id === "3") {
+      promtValue = "Scissors";
+      getHumanChoice();
+      getComputerChoice();
+      playRound(promtValue, computerChoiceArr[computerChoice]);
+    }
+
+    div.textContent += `${humanScore} ${computerScore}`;
+
+    if (humanScore === 5 || computerScore === 5) {
+      console.log("The game is over");
+      if (humanScore > computerScore) {
+        console.log("Player wins!!");
+      } else if (computerScore > humanScore) {
+        console.log("You loose!!");
+      } else {
+        console.log("It's a tie!, Nobody Won!!!");
+      }
+    }
+  });
 }
 
 playGame();
