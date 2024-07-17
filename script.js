@@ -48,12 +48,9 @@ function playRound(value1, value2) {
 }
 
 function playGame() {
-  const gameRounds = 5;
-  for (let i = 1; i <= gameRounds; i++) {
-    getComputerChoice();
-    getHumanChoice();
-    playRound(promtValue, computerChoiceArr[computerChoice]);
-  }
+  getComputerChoice();
+  getHumanChoice();
+  playRound(promtValue, computerChoiceArr[computerChoice]);
 
   if (humanScore > computerScore) {
     console.log("Player wins!");
